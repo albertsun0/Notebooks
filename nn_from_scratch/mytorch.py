@@ -159,6 +159,10 @@ class MLP:
     def parameters(self):
         return [p for layer in self.layers for p in layer.parameters()]
 
+    def zero_grad(self):
+        for p in self.parameters():
+            p.grad = 0.0
+
 
 # def trace(n):
 #     nodes, edges = set(), set()
